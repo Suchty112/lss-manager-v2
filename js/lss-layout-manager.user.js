@@ -18,7 +18,7 @@ var curwindow = "#missions_outer",
     curtab_wp = "#wp_fw",
 	// Dev: https://dev.northdegree.de/lss
 	// Prod: https://v2.lss-m.de
-    server = "https://v2.lss-m.de", // All files are getting loaded from this server (without ending /)
+    server = "https://v2.lss-m.de/js", // All files are getting loaded from this server (without ending /)
     markers = [],
     mapfix = false,
     nightmode = 'false',
