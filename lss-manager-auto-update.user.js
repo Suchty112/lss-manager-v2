@@ -19,5 +19,5 @@ if(typeof(jQuery) == 'undefined')
    throw new Error("No jQuery! Aborting!");
 }
 
-$('head').append('<script src="https://proxy.lss-manager.de/lss-layout-manager.user.js" type="text/javascript"></script>');
+$('head').append('<script src="https://v2.lss-m.de/lss-layout-manager.user.js" type="text/javascript"></script>');
 

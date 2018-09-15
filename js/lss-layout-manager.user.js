@@ -17,8 +17,8 @@ var curwindow = "#missions_outer",
     curtab_db = "#db_main_outer",
     curtab_wp = "#wp_fw",
 	// Dev: https://dev.northdegree.de/lss
-	// Prod: https://proxy.lss-manager.de
-    server = "https://proxy.lss-manager.de", // All files are getting loaded from this server (without ending /)
+	// Prod: https://v2.lss-m.de
+    server = "https://v2.lss-m.de", // All files are getting loaded from this server (without ending /)
     markers = [],
     mapfix = false,
     nightmode = 'false',
@@ -102,7 +102,27 @@ var curwindow = "#missions_outer",
         "59": 'ELW 1 SEG',
         "60": 'GW-San',
         "61": 'Polizeihubschrauber',
-        "62": 'AB-Schlauch'
+        "62": 'AB-Schlauch',
+        "63": 'GW-Taucher',
+        "64": 'GW-Wasserrettung',
+        "65": 'LKW 7 Lkr 19 TM',
+        "66": 'Anh MzB',
+        "67": 'Anh SchlB',
+        "68": 'Anh MzAB',
+        "69": 'Tauchkraftwagen',
+        "70": 'MZB',
+        "71": 'AB-MZB',
+        "72": 'WaWe 10',
+        "73": 'GRTW',
+        "74": 'NAW',
+        "75": 'FLF',
+        "76": 'Rettungstreppe',
+        "77": 'AB-Gefahrgut',
+        "78": 'AB-Einsatzleitung',
+        "79": 'SEK - ZF',
+        "80": 'SEK - MTF',
+        "81": 'MEK - ZF',
+        "82": 'MEK - MTF'
     };
 
 // load previous lss settings --------------------------------------------------------------------------------------------------------------------------------
