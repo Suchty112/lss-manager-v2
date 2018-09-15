@@ -724,7 +724,7 @@ $("#dashboard-aa, #lssm_zurueck-a").css("display","");
 function active_redesign() {
   localStorage.setItem('lssm_redesign', "s-redesign");
     if ($("#s-redesign").is(":checked")) {
-        $("head").prepend('<link id="#redesign_css" rel="stylesheet" href="'+server+'/lss-manager.css">');
+        $("head").prepend('<link id="#redesign_css" rel="stylesheet" href="https://v2.lss-m.de/css/lss-manager.css">');
         $("#missions_outer").after('<div class="col-sm-4 overview_outer" id="verband_outer"><div id="verband1" class="sidebar-nav"><div class="panel panel-default" id="verband_einsatz"><div class="panel-heading" id="verband-head">Verbands-Einsätze</div><div class="panel-body" id="missions-panel-body"></div></div></div></div>');
         $("#mission_list_alliance").detach().appendTo('#verband_einsatz #missions-panel-body');
         $(".navbar-default, .dropdown-menu").css("background-color","#e74c3c");
