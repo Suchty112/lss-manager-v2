@@ -425,7 +425,7 @@ function changePage(tab) {
         if ($("#dashboard_outer").html().length===0) {
             $("#dashboard_outer").html('<h3><i class="fa fa-spinner fa-spin"></i> Loading...</h3>');
             $.ajax( {
-                url: server+"/dashboard.html",
+                url: "https://v2.lss-m.de/dashboard/html/dashboard.html",
                 timeout: 3000,
                 success:function (data) {
                     $("#dashboard_outer").html(data);
