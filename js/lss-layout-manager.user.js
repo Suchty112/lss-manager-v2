@@ -39,7 +39,7 @@ var curwindow = "#missions_outer",
         BUILDING_TYPE_POLIZEIHUBSCHRAUBERLANDEPLATZ: 'Polizeihubschrauber-Station',
         BUILDING_TYPE_SEG: 'SEG'
     },
-    lssm.carsById = {
+    lssm_carsById = {
         "0": 'LF 20',
         "1": 'LF 10',
         "2": 'DLK 23',
@@ -505,7 +505,7 @@ $("#s_close").click(function () {
 });
 
 // collect all buildings and save to array
-function lssm.get_buildings() {
+function lssm_get_buildings() {
     var data = [];
     $('#building_list').find('.building_list_li').each(function (index, element) {
         var stationId = $(element).find('.building_list_caption').find('.building_marker_image').attr('building_id'),
@@ -527,7 +527,7 @@ function lssm.get_buildings() {
 }
 
 // collect all cars and save to array
-function lssm.car_list_all() {
+function lssm_car_list_all() {
     var data = [];
     $("[id^='vehicle_building']").find('li').each(function (index, element) {
         data.push({
@@ -562,7 +562,7 @@ if (typeof user_id !== "undefined" && typeof user_premium !== "undefined")
     data.bro = navigator.sayswho;
     if(typeof alliance_id !== "undefined")
         data.all = alliance_id;
-    data.bui = lssm.get_buildings().length;
+    data.bui = lssm_get_buildings().length;
     data = JSON.stringify(data);
     $.ajax({
         type: "POST",
@@ -573,7 +573,7 @@ if (typeof user_id !== "undefined" && typeof user_premium !== "undefined")
 }
 
 // Alle Fahrzeuge einer Wache
-function lssm.car_list(building) {
+function lssm_car_list(building) {
     var data = [];
     $('#vehicle_building_' + building).find('li').each(function (index, element) {
         data.push({
@@ -587,7 +587,7 @@ function lssm.car_list(building) {
 }
 
 // Formatiert Fahrzeugliste um (mit FMS)
-function lssm.car_list_printable(list) {
+function lssm_car_list_printable(list) {
     var data = "";
     $.each(list, function (key, car) {
         data += "<br>&nbsp;&nbsp;&nbsp;<span class='building_list_fms building_list_fms_" + car.fms + "'>" + car.fms + "</span> " + car.name;
@@ -601,7 +601,7 @@ function drawCircles(radius) {
         map.removeLayer(value);
     });
     markers = [];
-    var data = lssm.get_buildings();
+    var data = lssm_get_buildings();
     map.attributionControl.addAttribution("Wachen-Planung by Lost &amp; Northdegree");
     // Map refresh
     map.invalidateSize(true);
@@ -628,7 +628,7 @@ function drawCircles(radius) {
             col = 'black';
         }
         if (draw === true) {
-            var cars = '<span class="building_leaflet_text" style="z-index:99999; color: ' + col + ';"><i class="fa fa-building"></i> ' + value.stationName + '</span>' + lssm.car_list_printable(lssm.car_list(value.stationId)),
+            var cars = '<span class="building_leaflet_text" style="z-index:99999; color: ' + col + ';"><i class="fa fa-building"></i> ' + value.stationName + '</span>' + lssm_car_list_printable(lssm_car_list(value.stationId)),
                 circle = L.circle([value.stationLat, value.stationLng], radius, {
                     color: col,
                     fillOpacity: 0.3,
@@ -644,11 +644,11 @@ function drawCircles(radius) {
 // Gebäude neu zeichnen
 function redraw_buildings() {
     $.each(building_markers, function (key, value) {
-        var cars = lssm.car_list(value.building_id),
+        var cars = lssm_car_list(value.building_id),
             data = value.options.title;
         if (cars.length > 0) {
             data += '&nbsp;<i class="fa fa-car"></i>' + cars.length;
-            data += lssm.car_list_printable(cars);
+            data += lssm_car_list_printable(cars);
         }
         value.bindLabel(data, {zIndex: 999});
     });
@@ -707,11 +707,11 @@ function redraw_Labels() {
     $.each(building_markers, function (key, value) {
         value.hideLabel();
         value.unbindLabel();
-        c_labels = lssm.car_list(value.building_id);
+        c_labels = lssm_car_list(value.building_id);
         data = value.options.title;
         if (c_labels.length > 0) {
             data += '&nbsp;<i class="fa fa-car"></i>' + c_labels.length;
-            data += lssm.car_list_printable(c_labels);
+            data += lssm_car_list_printable(c_labels);
         }
         value.bindLabel(data, {zIndex: 999});
     });
